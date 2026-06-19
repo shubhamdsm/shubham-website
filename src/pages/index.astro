@@ -1,0 +1,404 @@
+---
+const projects = [
+  {
+    title: "AI medical portal",
+    description: "Interactive healthcare dashboards and AI chat experiences for Novo Nordisk.",
+    href: "https://www.novonordisk.com/"
+  },
+  {
+    title: "Policy dashboard",
+    description: "Virtualized enterprise data grids built for thousands of records.",
+    href: "https://www.mondelezinternational.com/"
+  },
+  {
+    title: "Marketing assistant",
+    description: "Complex forms and dynamic content flows for internal marketing teams.",
+    href: "https://www.ey.com/en_in"
+  },
+  {
+    title: "Design systems",
+    description: "Reusable React components with accessibility and long-term maintainability in mind.",
+    href: "https://growthnatives.com/"
+  }
+];
+
+const writing = [
+  {
+    title: "React",
+    description: "Component architecture, hooks, state-heavy interfaces."
+  },
+  {
+    title: "TypeScript",
+    description: "Typed frontend systems that stay readable as teams scale."
+  },
+  {
+    title: "AI interfaces",
+    description: "Chat flows, response rendering, and data-rich product surfaces."
+  },
+  {
+    title: "Performance",
+    description: "Virtualization, accessibility, and calm UI for complex dashboards."
+  }
+];
+
+const experience = [
+  {
+    title: "EY",
+    description: "Consultant, working with Novo Nordisk on AI-driven healthcare portals."
+  },
+  {
+    title: "EY",
+    description: "Associate Consultant, built policy and marketing tools for Mondelez."
+  },
+  {
+    title: "Growth Natives",
+    description: "Frontend Engineer, shipped scalable client-facing React modules."
+  }
+];
+
+const basePath = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const assetPath = (path: string) => `${basePath}${path.replace(/^\//, "")}`;
+const canonicalUrl = new URL(basePath, Astro.site ?? "https://shubhamyadav.dev").toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shubham Yadav - Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Shubham Yadav is a frontend engineer building React, TypeScript, AI interfaces, and data-heavy enterprise dashboards."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content="Shubham Yadav - Frontend Engineer" />
+    <meta
+      property="og:description"
+      content="Product-focused frontend engineer working on React, TypeScript, AI interfaces, and enterprise dashboards."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={assetPath("/og.svg")} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shubham Yadav - Frontend Engineer" />
+    <meta
+      name="twitter:description"
+      content="Frontend engineer building precise, reliable interfaces for enterprise products."
+    />
+    <meta name="twitter:image" content={assetPath("/og.svg")} />
+    <link rel="icon" href={assetPath("/favicon.svg")} type="image/svg+xml" />
+  </head>
+  <body>
+    <main>
+      <a class="notice" href="mailto:shubhamdv19@gmail.com">
+        Open to remote frontend roles.
+      </a>
+
+      <header>
+        <div>
+          <h1>Shubham Yadav</h1>
+          <p>Frontend Engineer</p>
+        </div>
+        <span>Today</span>
+      </header>
+
+      <section class="intro" aria-label="Introduction">
+        <p>
+          I build reliable frontend systems for enterprise products. I work with
+          React, TypeScript, and data-heavy interfaces, with a growing focus on
+          AI-driven product experiences.
+        </p>
+        <p>
+          Currently, I work at EY on healthcare and enterprise dashboards.
+          Previously, I built marketing and client-facing tools at Growth Natives.
+        </p>
+      </section>
+
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+        <div class="list">
+          {
+            projects.map((project) => (
+              <a href={project.href} target="_blank" rel="noreferrer">
+                <strong>{project.title}</strong>
+                <span>{project.description}</span>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <section aria-labelledby="writing-heading">
+        <h2 id="writing-heading">Focus</h2>
+        <div class="list">
+          {
+            writing.map((item) => (
+              <article>
+                <strong>{item.title}</strong>
+                <span>{item.description}</span>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <div class="list">
+          {
+            experience.map((item) => (
+              <article>
+                <strong>{item.title}</strong>
+                <span>{item.description}</span>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <form action="mailto:shubhamdv19@gmail.com" method="post" enctype="text/plain">
+          <label for="email">Say hello</label>
+          <div>
+            <input id="email" name="email" type="email" placeholder="Email" autocomplete="email" />
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </section>
+
+      <footer>
+        <p>
+          You can see more of my work on
+          <a href="https://www.linkedin.com/in/shubhamdsm/" target="_blank" rel="noreferrer">LinkedIn</a>
+          and more of my code on
+          <a href="https://github.com/shubhamdsm" target="_blank" rel="noreferrer">GitHub</a>.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #fafafa;
+    --text: #181818;
+    --muted: #6a6a6a;
+    --faint: #8a8a8a;
+    --line: #e8e8e8;
+    --focus: #2f6fed;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    letter-spacing: 0;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  main {
+    width: min(100% - 40px, 600px);
+    margin: 0 auto;
+    padding: 72px 0 56px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-color: color-mix(in srgb, currentColor 25%, transparent);
+    text-underline-offset: 3px;
+    transition: color 160ms ease, text-decoration-color 160ms ease;
+  }
+
+  a:hover {
+    color: var(--focus);
+    text-decoration-color: currentColor;
+  }
+
+  .notice {
+    display: inline-block;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  h1,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  header p,
+  header span {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  section {
+    margin-top: 34px;
+  }
+
+  .intro {
+    margin-top: 0;
+  }
+
+  .intro p,
+  footer p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.68;
+  }
+
+  .intro p + p {
+    margin-top: 16px;
+  }
+
+  h2 {
+    margin-bottom: 13px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .list a,
+  .list article {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+    gap: 18px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  strong {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .list span {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  form {
+    display: grid;
+    gap: 10px;
+  }
+
+  label {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  form div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  input,
+  button {
+    min-height: 42px;
+    border: 0;
+    border-radius: 0;
+    font: inherit;
+    font-size: 15px;
+  }
+
+  input {
+    min-width: 0;
+    padding: 0 13px;
+    color: var(--text);
+    background: transparent;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: var(--faint);
+  }
+
+  button {
+    padding: 0 15px;
+    color: #ffffff;
+    background: var(--text);
+    cursor: pointer;
+    transition: background 160ms ease;
+  }
+
+  button:hover {
+    background: #333333;
+  }
+
+  footer {
+    margin-top: 34px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 560px) {
+    main {
+      width: min(100% - 32px, 600px);
+      padding: 42px 0 40px;
+    }
+
+    header {
+      gap: 16px;
+    }
+
+    .list a,
+    .list article {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+</style>
