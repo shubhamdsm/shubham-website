@@ -3,22 +3,22 @@ const projects = [
   {
     title: "AI medical portal",
     description: "Interactive healthcare dashboards and AI chat experiences for Novo Nordisk.",
-    href: "https://www.novonordisk.com/"
+   
   },
   {
     title: "Policy dashboard",
     description: "Virtualized enterprise data grids built for thousands of records.",
-    href: "https://www.mondelezinternational.com/"
+    
   },
   {
     title: "Marketing assistant",
     description: "Complex forms and dynamic content flows for internal marketing teams.",
-    href: "https://www.ey.com/en_in"
+   
   },
   {
     title: "Design systems",
     description: "Reusable React components with accessibility and long-term maintainability in mind.",
-    href: "https://growthnatives.com/"
+   
   }
 ];
 
@@ -123,10 +123,10 @@ const canonicalUrl = new URL(basePath, Astro.site ?? "https://shubhamyadav.dev")
         <div class="list">
           {
             projects.map((project) => (
-              <a href={project.href} target="_blank" rel="noreferrer">
+             
                 <strong>{project.title}</strong>
                 <span>{project.description}</span>
-              </a>
+              
             ))
           }
         </div>

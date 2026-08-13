@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
-const site = process.env.SITE_URL ?? "http://localhost:4321";
+const site = process.env.SITE_URL ?? "https://shubh.wtf";
 const base = process.env.BASE_PATH ?? "/";
 
 export default defineConfig({

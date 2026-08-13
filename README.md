@@ -15,27 +15,30 @@ pnpm dev
 pnpm build
 ```
 
-The site is static, so it can be deployed easily to Vercel, Netlify, Cloudflare Pages, or GitHub Pages.
+## Deploy to shubh.wtf
 
-## GitHub Pages
+This site deploys to [Vercel](https://vercel.com) from the `main` branch. Pushes to `main` go live automatically after DNS is configured.
 
-This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml`.
+### 1. Connect Vercel to GitHub
 
-1. Create a GitHub repo named `shubham-website`.
-2. Push the `main` branch.
-3. In GitHub, open Settings -> Pages.
-4. Set Source to `GitHub Actions`.
+1. Sign in at [vercel.com](https://vercel.com) with GitHub.
+2. Import `shubhamdsm/shubham-website`.
+3. Keep defaults: framework **Astro**, build command `pnpm build`, output directory `dist`.
+4. Add the domain `shubh.wtf` (and optionally `www.shubh.wtf`) under **Project → Settings → Domains**.
 
-The workflow builds Astro with:
+### 2. Namecheap DNS records
 
-```bash
-SITE_URL=https://shubhamdsm.github.io
-BASE_PATH=/shubham-website
-pnpm build
-```
+In Namecheap: **Domain List → shubh.wtf → Manage → Advanced DNS**.
 
-After the action completes, the site should be available at:
+| Type  | Host | Value                 | TTL  |
+|-------|------|-----------------------|------|
+| A     | `@`  | `76.76.21.21`         | Auto |
+| CNAME | `www`| `cname.vercel-dns.com`| Auto |
 
-```text
-https://shubhamdsm.github.io/shubham-website/
-```
+Remove any old GitHub Pages A/CNAME records if they exist.
+
+DNS can take up to an hour to propagate. Vercel issues SSL automatically once DNS resolves.
+
+### 3. Verify
+
+After deploy finishes, open [https://shubh.wtf](https://shubh.wtf). `www.shubh.wtf` redirects to the apex domain.
